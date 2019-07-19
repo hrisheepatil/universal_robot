@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+ 
+<robot name="table_dining" xmlns:xacro="https://wiki.ros.org/xacro" >  
+  <gazebo reference="table_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+    
+  <link name="table_link">
+    <!-- pose and inertial -->
+    <pose>0 0 0 0 0 0</pose>
+    
+    <!--inertial>
+      <mass value="100"/>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial-->
+    
+    <collision name="collision_table">
+      <geometry>
+        <box size="0.73000 0.276000 0.072000"/>
+      </geometry>
+    </collision>
+    
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://kinect_track/models/table_dining/meshes/table2.dae"/>
+      </geometry>
+    </visual>
+  </link> 
+</robot>

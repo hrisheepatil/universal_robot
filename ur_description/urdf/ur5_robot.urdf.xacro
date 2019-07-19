@@ -17,10 +17,30 @@
 
   <link name="world" />
 
+  <link name="robot_support">
+    <inertial>
+      <mass value="100"/>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.5"/>
+      <inertia ixx="10.58" ixy = "0" ixz = "0" iyy="10.58" iyz = "0" izz="0.75" />
+    </inertial>
+    <visual name="robot_support_visual">
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <cylinder length="1.0" radius="0.075"/>
+      </geometry>
+    </visual>
+  </link>
+
   <joint name="world_joint" type="fixed">
     <parent link="world" />
+    <child link = "robot_support" />
+    <origin xyz="0.0 0.0 0.45" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <joint name="robot_joint" type="fixed">
+    <parent link="robot_support" />
     <child link = "base_link" />
-    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    <origin xyz="0.0 0.0 0.5" rpy="0.0 0.0 0.0" />
   </joint>
 
 </robot>
