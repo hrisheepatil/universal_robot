@@ -355,6 +355,21 @@
       </collision>
     </link>
 
+    <link name="camera_support1">
+      <visual name="camera_support_visual">
+        <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+        <geometry>
+          <box size="0.015 0.015 0.015"/>
+        </geometry>
+      </visual>
+    </link>
+
+    <joint name="camera_joint1" type="fixed">
+      <parent link="${prefix}ee_link" />
+      <child link = "camera_support1" />
+      <origin xyz="-0.015 0.0477 0.0" rpy="0.0 0.0 0.0" />
+    </joint>
+
     <xacro:ur_arm_transmission prefix="${prefix}" hw_interface="${transmission_hw_interface}" />
     <xacro:ur_arm_gazebo prefix="${prefix}" />
 

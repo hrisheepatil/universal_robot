@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+
+<launch>
+	<node name="robot_control_ur" pkg="ur_custom" type="robot_control_ur.py"/>
+</launch>

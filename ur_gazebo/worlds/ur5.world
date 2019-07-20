@@ -13,10 +13,28 @@
  
     <include>
       <uri>model://table_dining</uri>
-      <name>dining_table</name>
+      <name>dining_table_front</name>
       <pose>0.5 0 0 0 0 1.57</pose>
+    </include>
+
+    <include>
+      <uri>model://table_dining</uri>
+      <name>dining_table_back</name>
+      <pose>-0.5 0 0 0 0 -1.57</pose>
     </include> 
-    
+   
+    <include>
+      <uri>model://checkerboard</uri>
+      <name>checkerboard</name>
+      <pose>-1.0 0 -0.33 0 0 0.0</pose>
+    </include> 
+
+    <include>
+      <uri>model://demo_cube</uri>
+      <name>demo_cube</name>
+      <pose>0.5 0 1.1 0 0 0.0</pose>
+    </include>
+ 
   </world>
   
 </sdf>
