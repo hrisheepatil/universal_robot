@@ -17,28 +17,24 @@ class saveImage:
 		self.image = rospy.Subscriber('/ur/camera1/image_raw', Image, self.callback)
                 self.capture = rospy.Service('capture_image', CaptureImage, self.capture)
 		self.capture = 0
-		self.done = 0
+		self.count = 0
 
 	def callback(self, msg):
 		if self.capture == 1:
+			self.count = self.count + 1
                 	try:
         			cv2_img = bridge.imgmsg_to_cv2(msg, "bgr8")
     			except CvBridgeError, e:
         			print(e)
     			else: 
         			time = msg.header.stamp
-        			cv2.imwrite(''+str(time)+'.jpeg', cv2_img)
-        			rospy.sleep(1)
-			self.done = 2
-			self.capture = 0 
+        			cv2.imwrite(''+str(self.count)+'.jpeg', cv2_img)
+				self.capture = 0 
  
         def capture(self, req):
 		print('Image Captured')
 		self.capture = req.capture
-		if self.done == 2:
-			req.done = 2
-			self.done = 0
-			return CaptureImageResponse(req.done)
+		return CaptureImageResponse(done = 2)
                 
 
 if __name__ == "__main__":	

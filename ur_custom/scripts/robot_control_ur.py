@@ -22,7 +22,6 @@ def capture_send():
 		resp = CaptureImageRequest()
          	resp.capture = 1
 		capture_image(resp)
-		return resp.done
 
         except rospy.ServiceException, e:
         	print ("Service call failed: %s"%e)
@@ -31,13 +30,14 @@ if __name__ == "__main__":
 	moveit_commander.roscpp_initialize(sys.argv)	
 	rospy.init_node("robot_control_ur")
 	group = moveit_commander.MoveGroupCommander("manipulator")
+	time.sleep(1)
 	pose = group.get_current_pose().pose
         pose_goal = geometry_msgs.msg.Pose()
 	pose_goal.orientation.x = 0.5
 	pose_goal.orientation.y = 0.5
 	pose_goal.orientation.z = -0.5
 	pose_goal.orientation.w = 0.5
-	pose_goal.position.x = 0.50
+	pose_goal.position.x = 0.5
 	pose_goal.position.y = 0.0
 	pose_goal.position.z = 0.7
 	group.set_pose_target(pose_goal)
@@ -50,7 +50,7 @@ if __name__ == "__main__":
 	pose_goal.orientation.z = -0.5
 	pose_goal.orientation.w = 0.5
 	pose_goal.position.x = 0.0
-	pose_goal.position.y = -0.5
+	pose_goal.position.y = 0.5
 	pose_goal.position.z = 0.7
 	group.set_pose_target(pose_goal)
 	group.go(pose_goal, wait=True)
@@ -81,7 +81,8 @@ if __name__ == "__main__":
 	group.go(pose_goal, wait=True)
 	group.stop()
         time.sleep(1)
-        pose_goal = geometry_msgs.msg.Pose()
+        recv = capture_send()
+	pose_goal = geometry_msgs.msg.Pose()
 	pose_goal.orientation.x = 0.605613239458
 	pose_goal.orientation.y = 0.314254944388
 	pose_goal.orientation.z = -0.653215458798
@@ -93,7 +94,8 @@ if __name__ == "__main__":
 	group.go(pose_goal, wait=True)
 	group.stop()
         time.sleep(1)
-        pose_goal = geometry_msgs.msg.Pose()
+        recv = capture_send()
+	pose_goal = geometry_msgs.msg.Pose()
 	pose_goal.orientation.x = 0.481541011588
 	pose_goal.orientation.y = 0.493296125559
 	pose_goal.orientation.z = -0.530992374693
@@ -105,7 +107,8 @@ if __name__ == "__main__":
 	group.go(pose_goal, wait=True)
 	group.stop()
         time.sleep(1)
-        pose_goal = geometry_msgs.msg.Pose()
+        recv = capture_send()
+	pose_goal = geometry_msgs.msg.Pose()
 	pose_goal.orientation.x = 0.665295824139
 	pose_goal.orientation.y = 0.569565994532
 	pose_goal.orientation.z = -0.334927430103
@@ -117,7 +120,8 @@ if __name__ == "__main__":
 	group.go(pose_goal, wait=True)
 	group.stop()
         time.sleep(1)
-        pose_goal = geometry_msgs.msg.Pose()
+        recv = capture_send()
+	pose_goal = geometry_msgs.msg.Pose()
 	pose_goal.orientation.x = 0.637441729664
 	pose_goal.orientation.y = 0.600720160124
 	pose_goal.orientation.z = -0.350972489186
@@ -129,7 +133,8 @@ if __name__ == "__main__":
 	group.go(pose_goal, wait=True)
 	group.stop()
         time.sleep(1)
-        pose_goal = geometry_msgs.msg.Pose()
+        recv = capture_send()
+	pose_goal = geometry_msgs.msg.Pose()
 	pose_goal.orientation.x = 0.494692899603
 	pose_goal.orientation.y = 0.466016201817
 	pose_goal.orientation.z = -0.533793658933
@@ -141,7 +146,8 @@ if __name__ == "__main__":
 	group.go(pose_goal, wait=True)
 	group.stop()
         time.sleep(1)
-        pose_goal = geometry_msgs.msg.Pose()
+        recv = capture_send()
+	pose_goal = geometry_msgs.msg.Pose()
 	pose_goal.orientation.x = 0.535547257025
 	pose_goal.orientation.y = 0.50469426486
 	pose_goal.orientation.z = -0.492806308614
@@ -153,7 +159,8 @@ if __name__ == "__main__":
 	group.go(pose_goal, wait=True)
 	group.stop()
         time.sleep(1)
-        pose_goal = geometry_msgs.msg.Pose()
+        recv = capture_send()
+	pose_goal = geometry_msgs.msg.Pose()
 	pose_goal.orientation.x = 0.5
 	pose_goal.orientation.y = 0.5
 	pose_goal.orientation.z = -0.5
@@ -165,6 +172,7 @@ if __name__ == "__main__":
 	group.go(pose_goal, wait=True)
 	group.stop()
         time.sleep(1)
+	recv = capture_send()
 	pose_goal = geometry_msgs.msg.Pose()
 	pose_goal.orientation.x = 0.5
 	pose_goal.orientation.y = 0.5
