@@ -1,3 +1,3 @@
 int64 capture
 ---
-int64 done
+sensor_msgs/Image image

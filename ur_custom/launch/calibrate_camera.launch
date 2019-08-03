@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<launch>
+	<node name="capture_image_ur" pkg="ur_custom" type="capture_image.py"/>
+	<node name="calibrate_camera" pkg="ur_custom" type="calibrate_camera.py"/>
+</launch>

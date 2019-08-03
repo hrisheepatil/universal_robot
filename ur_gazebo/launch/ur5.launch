@@ -31,6 +31,6 @@
   
   <include file="$(find ur5_moveit_config)/launch/moveit_custom.launch"/>
   
-  <!--include file="$(find ur_custom)/launch/robot_control_ur.launch"/-->
+  <!-- include file="$(find ur_custom)/launch/robot_control.launch"/ -->
 
 </launch>

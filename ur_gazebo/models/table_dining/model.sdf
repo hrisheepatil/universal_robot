@@ -11,7 +11,7 @@
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
-        <!--material>
+        <material>
           <lighting>1</lighting>
           <ambient>0.439 0.372 0.066 1</ambient>
           <diffuse>0.439 0.372 0.066 1</diffuse>
@@ -20,13 +20,6 @@
           <shader type='vertex'>
             <normal_map>__default__</normal_map>
           </shader>
-        </material-->
-        <material>
-          <script>
-            <uri>model://table_dining/materials/scripts</uri>
-            <uri>model://table_dining/materials/textures</uri>
-            <name>dining_table</name>
-          </script>
         </material>
         <cast_shadows>1</cast_shadows>
         <transparency>0</transparency>
